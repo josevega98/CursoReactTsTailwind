@@ -1,0 +1,37 @@
+.app-layout {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: left;
+}
+
+.app-header {
+  border-bottom: 1px solid #444;
+  margin-bottom: 1rem;
+}
+
+.app-navbar {
+  margin-bottom: 1.5rem;
+}
+
+.app-navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+
+.app-content {
+  min-height: 200px;
+}
+
+.app-footer {
+  border-top: 1px solid #444;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.reloj-actual {
+  font-size: 1.1rem;
+}
