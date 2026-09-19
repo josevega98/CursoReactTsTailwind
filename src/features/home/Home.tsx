@@ -1,4 +1,5 @@
 import { useCitas } from "../citas";
+import BotonQueFalla from "./BotonQueFalla";
 import RelojActual from "./RelojActual";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         </strong>
       </p>
       <RelojActual />
+      <BotonQueFalla />
     </section>
   );
 }
