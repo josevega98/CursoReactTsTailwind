@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
-import ProtectedRoute from "../features/auth/ProtectedRoute";
+import { ProtectedRoute } from "../features/auth";
 import Home from "../features/home/Home";
 import Citas from "../features/citas/Citas";
 import Admin from "../features/admin/Admin";
