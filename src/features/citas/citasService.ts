@@ -21,6 +21,8 @@ const citas: Cita[] = [
   },
 ];
 
+const LATENCIA_SIMULADA_MS = 800;
+
 const esperar = (ms: number) =>
   new Promise<void>((resolve) => setTimeout(resolve, ms));
 
@@ -28,6 +30,6 @@ const esperar = (ms: number) =>
 // Hoy simula una API con espera; cuando exista un backend, solo cambia el
 // interior de esta función (por ejemplo, un fetch) y nada más en la app.
 export async function listarCitas(): Promise<Cita[]> {
-  await esperar(800);
+  await esperar(LATENCIA_SIMULADA_MS);
   return [...citas];
 }

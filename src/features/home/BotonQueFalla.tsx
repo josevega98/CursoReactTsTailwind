@@ -12,7 +12,7 @@ export default function BotonQueFalla() {
   }
 
   return (
-    <Button tipo_boton="danger" onClick={() => setDebeFallar(true)}>
+    <Button variante="danger" onClick={() => setDebeFallar(true)}>
       Simular error de render
     </Button>
   );
