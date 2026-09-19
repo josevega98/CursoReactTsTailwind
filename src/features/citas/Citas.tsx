@@ -1,39 +1,10 @@
-import { useEffect, useState } from "react";
 import Cargando from "../../shared/components/Cargando";
 import CitaCard from "./CitaCard";
-import { listarCitas } from "./citasService";
-import type { Cita } from "./dominio";
+import { useCitas } from "./useCitas";
 
-// La página ya no tiene datos ni colores: los pide al servicio y delega
-// el dibujo en CitaCard. Todavía conserva el estado y el efecto (se
-// extraerán a un custom hook en el siguiente tema).
+// La página solo decide QUÉ mostrar según el estado que entrega el hook.
 export default function Citas() {
-  const [citas, setCitas] = useState<Cita[]>([]);
-  const [cargando, setCargando] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Bandera de cleanup: si el componente se desmonta antes de que responda
-    // el servicio, no intentamos actualizar un estado que ya no existe.
-    let cancelado = false;
-
-    listarCitas()
-      .then((datos) => {
-        if (!cancelado) setCitas(datos);
-      })
-      .catch((causa: unknown) => {
-        if (!cancelado) {
-          setError(causa instanceof Error ? causa.message : "Error desconocido");
-        }
-      })
-      .finally(() => {
-        if (!cancelado) setCargando(false);
-      });
-
-    return () => {
-      cancelado = true;
-    };
-  }, []);
+  const { citas, cargando, error } = useCitas();
 
   return (
     <section className="flex flex-col gap-4">
