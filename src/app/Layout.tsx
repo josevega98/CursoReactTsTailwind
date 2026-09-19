@@ -23,10 +23,8 @@ export default function Layout({ children }: LayoutProps) {
           { label: "Citas", to: "/citas" },
           { label: "Administración", to: "/admin" },
         ]}
+        acciones={<BotonTema />}
       />
-      <div className="flex justify-end px-6">
-        <BotonTema />
-      </div>
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-6">
         {children}
       </main>
