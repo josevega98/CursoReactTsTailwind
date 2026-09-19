@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { BotonTema } from "../features/tema";
 import Header from "../shared/components/Header";
 import Navbar from "../shared/components/Navbar";
 import Footer from "../shared/components/Footer";
@@ -23,6 +24,9 @@ export default function Layout({ children }: LayoutProps) {
           { label: "Administración", to: "/admin" },
         ]}
       />
+      <div className="flex justify-end px-6">
+        <BotonTema />
+      </div>
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-6">
         {children}
       </main>
