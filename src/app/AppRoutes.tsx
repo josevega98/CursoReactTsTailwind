@@ -19,8 +19,8 @@ export default function AppRoutes() {
 
   return (
     // key={pathname}: al navegar a otra ruta el boundary se reinicia, así un
-    // error en una página no deja bloqueadas las demás. Como también vuelve a
-    // montar el Suspense, el fallback se ve al navegar con enlaces.
+    // error en una página no deja bloqueadas las demás. El fallback solo aparece
+    // si el módulo sigue pendiente: lazy conserva los módulos ya resueltos.
     <ErrorBoundary key={pathname}>
       {/* Suspense muestra el fallback mientras se descarga el código de la página. */}
       <Suspense fallback={<Cargando mensaje="Cargando página..." />}>

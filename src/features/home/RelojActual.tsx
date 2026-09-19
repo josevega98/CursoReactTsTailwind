@@ -1,15 +1,11 @@
 import { useAhora } from "./useAhora";
 
-// Ahora es solo interfaz: toda la lógica del tiempo está en useAhora.
 export default function RelojActual() {
-  const horaActual = useAhora();
-
+  const ahora = useAhora();
   return (
-    <p className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-sm shadow-sm ring-1 ring-slate-900/5 dark:border-slate-700 dark:ring-white/10">
-      Hora actual:{" "}
-      <strong className="font-semibold text-slate-900 dark:text-white">
-        {horaActual.toLocaleTimeString()}
-      </strong>
-    </p>
+    <div className="muted text-sm sm:text-right">
+      <p className="capitalize">{ahora.toLocaleDateString("es-PE", { weekday: "long", day: "numeric", month: "long" })}</p>
+      <p className="mt-1 text-xs">Hora local <time className="ml-2 font-semibold tabular-nums" dateTime={ahora.toISOString()}>{ahora.toLocaleTimeString("es-PE")}</time></p>
+    </div>
   );
 }

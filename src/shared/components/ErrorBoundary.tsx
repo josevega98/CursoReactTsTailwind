@@ -8,8 +8,8 @@ interface ErrorBoundaryState {
   error: Error | null;
 }
 
-// Los Error Boundaries siguen siendo la única razón para escribir una clase en
-// React: todavía no existe un hook equivalente a getDerivedStateFromError.
+// Para implementar un boundary directamente en React usamos una clase:
+// no existe un hook equivalente a getDerivedStateFromError.
 // Atrapan errores lanzados al RENDERIZAR a sus hijos; no atrapan errores dentro
 // de event handlers ni de código asíncrono (esos se manejan con try/catch).
 export default class ErrorBoundary extends Component<

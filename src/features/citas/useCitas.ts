@@ -8,6 +8,14 @@ export function useCitas() {
   const [citas, setCitas] = useState<Cita[]>([]);
   const [cargando, setCargando] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [revision, setRevision] = useState(0);
+
+  // Cada consumidor recarga su propia instancia; no existe estado global aquí.
+  function recargar() {
+    setCargando(true);
+    setError(null);
+    setRevision((actual) => actual + 1);
+  }
 
   useEffect(() => {
     // Bandera de cleanup: si el componente se desmonta antes de que responda
@@ -30,7 +38,7 @@ export function useCitas() {
     return () => {
       cancelado = true;
     };
-  }, []);
+  }, [revision]);
 
-  return { citas, cargando, error };
+  return { citas, cargando, error, recargar };
 }

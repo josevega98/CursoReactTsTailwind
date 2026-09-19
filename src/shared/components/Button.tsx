@@ -1,31 +1,29 @@
-type VarianteBoton = "primary" | "secondary" | "danger";
+import type { ButtonHTMLAttributes } from "react";
 
-interface ButtonProps {
-  children: string;
-  onClick?: () => void;
+type VarianteBoton = "primary" | "secondary" | "danger";
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variante?: VarianteBoton;
 }
 
-// Fuera del componente: se crean una sola vez y no en cada render.
-const ESTILOS_BASE = "text-white px-4 py-2 rounded-lg font-medium transition";
-
-// Record<VarianteBoton, string> obliga a definir estilos para TODAS las
-// variantes: si se agrega una nueva al tipo, TypeScript marca el error aquí.
+const ESTILOS_BASE = "inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition disabled:cursor-wait disabled:opacity-50";
 const ESTILOS_POR_VARIANTE: Record<VarianteBoton, string> = {
-  primary: "bg-blue-600 hover:bg-blue-700",
-  secondary: "bg-gray-600 hover:bg-gray-700",
-  danger: "bg-red-600 hover:bg-red-700",
+  primary: "bg-teal-700 text-white hover:bg-teal-800",
+  secondary: "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700",
+  danger: "bg-rose-700 text-white hover:bg-rose-800",
 };
 
 export default function Button({
   children,
-  onClick,
   variante = "primary",
+  className = "",
+  type = "button",
+  ...props
 }: ButtonProps) {
   return (
     <button
-      className={`${ESTILOS_BASE} ${ESTILOS_POR_VARIANTE[variante]}`}
-      onClick={onClick}
+      type={type}
+      className={`${ESTILOS_BASE} ${ESTILOS_POR_VARIANTE[variante]} ${className}`}
+      {...props}
     >
       {children}
     </button>

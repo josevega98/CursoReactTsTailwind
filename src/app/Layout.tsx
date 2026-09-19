@@ -4,19 +4,14 @@ import Header from "../shared/components/Header";
 import Navbar from "../shared/components/Navbar";
 import Footer from "../shared/components/Footer";
 
-interface LayoutProps {
-  children: ReactNode;
-}
+interface LayoutProps { children: ReactNode; }
 
-// Componente "general": compone Header + Navbar + Footer alrededor
-// del contenido de cada página (children). Esto es composición de componentes.
+// Composición: el layout recibe la página por children y el menú recibe acciones.
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-900 dark:bg-slate-900 dark:text-white">
-      <Header
-        titulo="Sistema de Citas Médicas"
-        subtitulo="Clínica Salud Total"
-      />
+    <div className="app-shell">
+      <a href="#contenido" className="skip-link">Saltar al contenido</a>
+      <Header titulo="Clínica Salud Total" subtitulo="Sistema de citas médicas" />
       <Navbar
         enlaces={[
           { label: "Inicio", to: "/" },
@@ -25,9 +20,7 @@ export default function Layout({ children }: LayoutProps) {
         ]}
         acciones={<BotonTema />}
       />
-      <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-6">
-        {children}
-      </main>
+      <main id="contenido" tabIndex={-1} className="page-width main-content">{children}</main>
       <Footer />
     </div>
   );
