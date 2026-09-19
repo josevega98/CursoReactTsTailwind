@@ -15,7 +15,7 @@ export default function Admin() {
         </code>{" "}
         en{" "}
         <code className="rounded bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">
-          src/session.ts
+          src/features/auth/session.ts
         </code>
         .
       </p>

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import Header from "./Header";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Header from "../shared/components/Header";
+import Navbar from "../shared/components/Navbar";
+import Footer from "../shared/components/Footer";
 
 interface LayoutProps {
   children: ReactNode;
