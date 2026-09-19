@@ -1,30 +1,28 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./Layout";
-import ProtectedRoute from "./ProtectedRoute";
-import Home from "./Home";
-import Citas from "./Citas";
-import Admin from "./Admin";
-import NotFound from "./NotFound";
-import "./App.css";
+interface ButtonProps {
+  children: string;
+  onClick?: () => void;
+  tipo_boton?: 'primary' | 'secondary' | 'danger';
+}
 
-export default function App() {
+export default function Button({ 
+  children, 
+  onClick, 
+  tipo_boton = 'primary' 
+}: ButtonProps) {
+  const baseStyles = "text-white px-4 py-2 rounded-lg font-medium transition"; 
+  
+  const variants = {
+    primary: "bg-blue-600 hover:bg-blue-700",
+    secondary: "bg-gray-600 hover:bg-gray-700",
+    danger: "bg-red-600 hover:bg-red-700",
+  };
+
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/citas" element={<Citas />} />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute>
-                <Admin />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <button 
+      className={`${baseStyles} bg-blue-600 hover:bg-blue-700`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }

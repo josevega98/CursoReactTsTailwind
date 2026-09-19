@@ -1,4 +1,4 @@
 // Simulación mínima de sesión: sin login real, sin llamadas a APIs.
 // Cambia este valor a "false" y recarga el navegador para ver cómo
 // la ruta protegida (/admin) redirige automáticamente a "/".
-export const isAuthenticated = true;
+export const isAuthenticated = false;

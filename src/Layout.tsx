@@ -11,7 +11,7 @@ interface LayoutProps {
 // del contenido de cada página (children). Esto es composición de componentes.
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="app-layout">
+    <div className="flex min-h-screen flex-col bg-white text-slate-900 dark:bg-slate-900 dark:text-white">
       <Header
         titulo="Sistema de Citas Médicas"
         subtitulo="Clínica Salud Total"
@@ -23,7 +23,9 @@ export default function Layout({ children }: LayoutProps) {
           { label: "Administración", to: "/admin" },
         ]}
       />
-      <main className="app-content">{children}</main>
+      <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-6">
+        {children}
+      </main>
       <Footer />
     </div>
   );
