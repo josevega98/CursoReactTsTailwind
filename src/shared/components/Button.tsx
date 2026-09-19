@@ -19,7 +19,7 @@ export default function Button({
 
   return (
     <button 
-      className={`${baseStyles} bg-blue-600 hover:bg-blue-700`}
+      className={`${baseStyles} ${variants[tipo_boton]}`}
       onClick={onClick}
     >
       {children}
