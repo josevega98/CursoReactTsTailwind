@@ -16,6 +16,7 @@ export default function Layout({ children }: LayoutProps) {
         enlaces={[
           { label: "Inicio", to: "/" },
           { label: "Citas", to: "/citas" },
+          { label: "APIs · Unidad 4", to: "/api" },
           { label: "Administración", to: "/admin" },
         ]}
         acciones={<BotonTema />}

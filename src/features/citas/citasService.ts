@@ -19,6 +19,12 @@ const citas: Cita[] = [
     fecha: "2026-09-15",
     estado: "cancelada",
   },
+  {
+    id: 4,
+    paciente: { id: 4, nombre: "Jose Vega", edad: 29 },
+    fecha: "2026-09-15",
+    estado: "pendiente",
+  },
 ];
 
 const LATENCIA_SIMULADA_MS = 800;

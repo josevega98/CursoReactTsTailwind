@@ -96,3 +96,8 @@ button:not(:disabled), select { cursor: pointer; }
   .stat strong { font-size: 28px; } .demo-content { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+.api-tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 28px; }
+.api-tabs > span { margin-left: auto; }
+.api-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: 26px; align-items: start; }
+@media (max-width: 1000px) { .api-grid { grid-template-columns: 1fr; } }

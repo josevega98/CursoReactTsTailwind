@@ -11,6 +11,7 @@ import NotFound from "./NotFound";
 // normal porque es lo primero que se ve.
 const Citas = lazy(() => import("../features/citas/Citas"));
 const Admin = lazy(() => import("../features/admin/Admin"));
+const ApiCitas = lazy(() => import("../features/apiCitas/ApiCitas"));
 
 export default function AppRoutes() {
   // useLocation solo funciona dentro de <BrowserRouter>; por eso las rutas
@@ -27,6 +28,7 @@ export default function AppRoutes() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/citas" element={<Citas />} />
+          <Route path="/api" element={<ApiCitas />} />
           <Route
             path="/admin"
             element={
